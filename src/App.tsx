@@ -5,6 +5,8 @@ import About from "./routes/about";
 import Nav from "./components/Nav";
 import RouterPropTest from "./routes/RouterPropTest"
 import RouterPropTestResult from "./routes/RouterPropTestResult"
+import StudentList from "./routes/StudentList";
+import StudentDetail from "./routes/StudentDetail";
 
 function App() {
   return (
@@ -16,6 +18,8 @@ function App() {
           <Route path = "/about" element = {<About />} />
           <Route path="/routerproptest" element={<RouterPropTest />} />
           <Route path = "/routerproptestresult" element = {<RouterPropTestResult />} />
+          <Route path = "/studentlist" element = {<StudentList />} />
+          <Route path = "/studentlist/:id" element = {<StudentDetail />} />
         </Routes>
       </Router>
     </>

@@ -1,14 +1,8 @@
 import { useLocation } from "react-router-dom";
 
-interface stateType{
-    profile:{
-        name:String;
-        age:String;
-    };
-}
 
 export default function RouterPropTestResult() {
-    const {state}  = useLocation();
+    const {state} :any  = useLocation();
     const name = state.profile.name;
     const age = state.profile.age;
     return (

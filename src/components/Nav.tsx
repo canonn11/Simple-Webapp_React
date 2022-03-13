@@ -8,6 +8,7 @@ export default function Nav(){
             <li><Link to="/">Home</Link> </li>
             <li><Link to="/about">About</Link> </li>
             <li><Link to="/routerproptest">Router Prop Test</Link> </li>
+            <li><Link to="/studentlist">Student List</Link> </li>
         </ul></>
     )
 }
