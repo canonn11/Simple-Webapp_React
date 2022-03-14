@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes , Route } from "react-router-dom";
 import Join from "./routes/Join";
 import Login from "./routes/Login";
+import Loading from "./components/Login/Loading";
 import Main from "./routes/Main";
 import MyOrder from "./routes/MyOrder";
 import Order from "./routes/Order";
