@@ -1,28 +1,23 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
-import Home from "./routes/home";
-import About from "./routes/about";
-import Nav from "./components/Nav";
-import RouterPropTest from "./routes/RouterPropTest"
-import RouterPropTestResult from "./routes/RouterPropTestResult"
-import StudentList from "./routes/StudentList";
-import StudentDetail from "./routes/StudentDetail";
+import { BrowserRouter as Router, Routes , Route } from "react-router-dom";
+import Join from "./routes/Join";
+import Login from "./routes/Login";
+import Main from "./routes/Main";
+import MyOrder from "./routes/MyOrder";
+import Order from "./routes/Order";
 
 function App() {
   return (
-    <>
+    <div className = "App">
       <Router>
-        <Nav />
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path = "/about" element = {<About />} />
-          <Route path="/routerproptest" element={<RouterPropTest />} />
-          <Route path = "/routerproptestresult" element = {<RouterPropTestResult />} />
-          <Route path = "/studentlist" element = {<StudentList />} />
-          <Route path = "/studentlist/:id" element = {<StudentDetail />} />
+          <Route path = "/" element = {<Login/>}/>
+          <Route path = "/join" element = {<Join/>}/>
+          <Route path = "/main" element = {<Main/>}/>
+          <Route path = "/myorder" element = {<MyOrder/>}/>
+          <Route path = "/order" element = {<Order/>}/>
         </Routes>
       </Router>
-    </>
+    </div>
   );
 }
 
