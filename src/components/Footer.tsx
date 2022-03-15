@@ -1,7 +1,12 @@
+import "./Footer.css"
+
 export default function Footer() {
     return (
       <>
-        <h1>Footer</h1>
+        < div className = "footerContainer">
+          <div>Simple-Webapp</div>
+          <div>TEL ) 010-1234-5678</div>
+        </div>
       </>
     );
   }
