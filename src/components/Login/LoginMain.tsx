@@ -3,13 +3,15 @@ import {useState}from "react"
 import Footer from "../Footer";
 import "./LoginMain.css";
 
-export default function LoginMain() {
-  const [id,setID] = useState("");
-  const [pw,setPW] = useState("");
-  const printIDPW = () => {
-    console.log(id);
-    console.log(pw);
-  }
+interface PropTypes {
+  id : string;
+  pw : string;
+  setID : (id : string) => void;
+  setPW : (pw : string) => void;
+  login : ()=>void;
+}
+
+export default function LoginMain({id,pw,setID,setPW,login} : PropTypes) {
   return (
     <>
       <div className="loginMain fullsize">
@@ -36,7 +38,7 @@ export default function LoginMain() {
           </div>
           <div className="buttonContainer">
             <div className="d-grid gap-2">
-              <button onClick = {()=>printIDPW()}className="loginbutton btn btn-info" type="button">
+              <button onClick = {()=>login()}className="loginbutton btn btn-info" type="button">
                 Login
               </button>
             </div>
