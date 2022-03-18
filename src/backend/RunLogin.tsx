@@ -6,6 +6,7 @@ interface PropTypes {
   pw: string;
   setRunLogin: (flag: boolean) => void;
   setFailedAlarm : (flag : boolean) => void;
+  offFailedAlarm : () => void;
 }
 
 const GET_USER_INFO = gql`
@@ -16,7 +17,7 @@ const GET_USER_INFO = gql`
   }
 `;
 
-export default function RunLogin({ id, pw, setRunLogin, setFailedAlarm }: PropTypes) {
+export default function RunLogin({ id, pw, setRunLogin, setFailedAlarm, offFailedAlarm }: PropTypes) {
   const { loading, data } = useQuery(GET_USER_INFO, {
     variables: { userId: id },
   });
@@ -25,10 +26,12 @@ export default function RunLogin({ id, pw, setRunLogin, setFailedAlarm }: PropTy
         if (data.personByUserId === null) {
           //일치하는 ID가 없을때 로그인실패 알람 띄우고 RunLogin 꺼지게
           setFailedAlarm(true);
+          offFailedAlarm();
           setRunLogin(false);
         } else if (pw !== data.personByUserId.password) {
           //비밀번호 틀렸을 때 로그인실패 알람 띄우고 RunLogin 꺼지게
           setFailedAlarm(true);
+          offFailedAlarm();
           setRunLogin(false);
         } else {
           console.log(`Login Success!
