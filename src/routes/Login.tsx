@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import Loading from "../components/Login/Loading";
 import LoginMain from "../components/Login/LoginMain";
@@ -12,13 +12,18 @@ export default function Login() {
   const [pw, setPW] = useState("");
   const [runLogin, setRunLogin] = useState(false);
   const [failedAlarm, setFailedAlarm] = useState(false);
+  useEffect(()=>{
+    if(failedAlarm){
+      setTimeout(()=>{
+        setFailedAlarm(false);
+      },1000);
+    }
+  })
   const login = () => {
     setRunLogin(true);
   }
-  const offFailedAlarm = () => {
-    setTimeout(()=>{
-      setFailedAlarm(false);
-    },1000);
+  const goMain = () => {
+
   }
   setTimeout(() => {
     setloading(false);
@@ -30,7 +35,7 @@ export default function Login() {
     <>
     {failedAlarm && <LoginFailAlert/>}
     <LoginMain id={id} pw={pw} setID={setID} setPW={setPW} login = {login} />
-    {runLogin && <RunLogin id = {id} pw = {pw} setRunLogin = {setRunLogin} setFailedAlarm = {setFailedAlarm} offFailedAlarm = {offFailedAlarm}/>}
+    {runLogin && <RunLogin id = {id} pw = {pw} setRunLogin = {setRunLogin} setFailedAlarm = {setFailedAlarm} goMain = {goMain}/>}
     </>
     )
   }
