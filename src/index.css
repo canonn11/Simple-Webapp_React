@@ -1,7 +1,9 @@
+/* 전체 스타일 */
 body {
     background-color:rgb(109, 82, 226);
 }
 
+/* 전체 화면의 레이아웃 */
 .fullsize{
     min-height : 100vh;
     display : grid;

@@ -1,3 +1,5 @@
+//메인화면을 담당하는 라우트
+
 import { useLocation } from 'react-router-dom'
 
 import Content from "../components/Main/Content";
