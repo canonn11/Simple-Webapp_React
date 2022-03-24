@@ -3,10 +3,3 @@
 .joinMain{
     grid-template-rows: 1fr 50px;
 }
-
-.IdPasswordAddress{
-    margin: 10px 40px 10px 40px;
-    padding-top : 50px;
-    display : grid;
-    grid-template-rows: 70px 70px 70px 40px;
-}
