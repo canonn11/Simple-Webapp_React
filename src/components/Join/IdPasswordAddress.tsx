@@ -1,6 +1,31 @@
+import { setSourceMapRange } from "typescript";
 import "./IdPasswordAddress.css";
 
-export default function IdPasswordAddress(){
+interface PropTypes{
+  id:string;
+  pw:string;
+  addr:string;
+  setID: (id:string) => void;
+  setPW: (pw:string) => void;
+  setADDR: (addr:string) => void;
+  joinFailAlarm : () => void;
+
+}
+
+export default function IdPasswordAddress({id,pw,addr,setID,setPW,setADDR, joinFailAlarm}:PropTypes){
+  const setUser = () => {
+    console.log(id);
+    console.log(pw);
+    console.log(addr);
+  }
+  const join = () => {
+    if(id !== "" && pw!==""){
+      setUser();
+    }
+    else{
+      joinFailAlarm();
+    }
+  }
     return (
         <>
         <div className="IdPasswordAddress">
@@ -10,6 +35,7 @@ export default function IdPasswordAddress(){
               className="form-control"
               id="idJoinInput"
               placeholder="ID"
+              onChange={(e)=>setID(e.target.value)}
             />
             <label htmlFor="idJoinInput">ID</label>
           </div>
@@ -19,6 +45,7 @@ export default function IdPasswordAddress(){
               className="form-control"
               id="pwJoinInput"
               placeholder="Password"
+              onChange={(e)=>setPW(e.target.value)}
             />
             <label htmlFor="pwJoinInput">PASSWORD</label>
           </div>
@@ -28,13 +55,14 @@ export default function IdPasswordAddress(){
               className="form-control"
               id="addrJoinInput"
               placeholder="Address"
+              onChange={(e)=>setADDR(e.target.value)}
             />
-            <label htmlFor="addrJoinInput">Address</label>
+            <label htmlFor="addrJoinInput">ADDRESS</label>
           </div>
           <div className="buttonContainer">
             <div className="d-grid gap-2">
-              <button className="loginbutton btn btn-info" type="button">
-                Login
+              <button className="joinbutton btn btn-info" type="button" onClick = {join}>
+                Join
               </button>
             </div>
           </div>
