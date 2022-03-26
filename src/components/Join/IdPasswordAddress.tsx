@@ -1,4 +1,3 @@
-import { setSourceMapRange } from "typescript";
 import "./IdPasswordAddress.css";
 
 interface PropTypes{
@@ -8,11 +7,11 @@ interface PropTypes{
   setID: (id:string) => void;
   setPW: (pw:string) => void;
   setADDR: (addr:string) => void;
-  joinFailAlarm : () => void;
+  joinFailAlert : () => void;
 
 }
 
-export default function IdPasswordAddress({id,pw,addr,setID,setPW,setADDR, joinFailAlarm}:PropTypes){
+export default function IdPasswordAddress({id,pw,addr,setID,setPW,setADDR, joinFailAlert}:PropTypes){
   const setUser = () => {
     console.log(id);
     console.log(pw);
@@ -23,7 +22,7 @@ export default function IdPasswordAddress({id,pw,addr,setID,setPW,setADDR, joinF
       setUser();
     }
     else{
-      joinFailAlarm();
+      joinFailAlert();
     }
   }
     return (
