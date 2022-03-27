@@ -6,5 +6,5 @@ export default function JoinFailAlert() {
         <>
             <div className="alert alert-danger" role='alert'>Join Failed</div>
         </>
-        );
+    );
 }
