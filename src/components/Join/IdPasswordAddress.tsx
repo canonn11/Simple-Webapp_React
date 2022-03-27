@@ -1,3 +1,4 @@
+import {gql, useMutation} from "@apollo/client";
 import "./IdPasswordAddress.css";
 
 interface PropTypes{
@@ -11,15 +12,38 @@ interface PropTypes{
 
 }
 
-export default function IdPasswordAddress({id,pw,addr,setID,setPW,setADDR, joinFailAlert}:PropTypes){
-  const setUser = () => {
-    console.log(id);
-    console.log(pw);
-    console.log(addr);
+const SET_USER = gql `
+mutation createPerson(
+  $userId : String!
+  $Password : String!
+  $defaultAddress : String!
+) {
+  createPerson(
+    input: {person: {userId: $userId password: $Password defaultAddress: $defaultAddress}}
+  ) {
+    clientMutationId
   }
+}
+
+`;
+
+export default function IdPasswordAddress({id,pw,addr,setID,setPW,setADDR, joinFailAlert}:PropTypes){
+  /*useMuation으로부터 만들어진 setUser 함수 사용*/
+  const [setUser, {data}] = useMutation(SET_USER,{
+    onError : (error) => {joinFailAlert();}
+  });
+
+
+  
   const join = () => {
     if(id !== "" && pw!==""){
-      setUser();
+      setUser({
+        variables : {
+          userId : id,
+          Password : pw,
+          defaultAddress : addr          
+        }
+      });
     }
     else{
       joinFailAlert();
